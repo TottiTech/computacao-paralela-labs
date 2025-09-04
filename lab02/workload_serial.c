@@ -2,7 +2,8 @@
 # include <stdlib.h>
 # include <time.h>
 # include <math.h>
-#include <linux/time.h>
+
+
 
 # define VECTOR_SIZE 200000000
 
@@ -18,11 +19,11 @@ double * vector = ( double *) malloc ( VECTOR_SIZE * sizeof ( double ));
 for(int i = 0; i < VECTOR_SIZE ; i++) vector [i] = ( double )i;
 
 struct timespec start , end;
-clock_gettime (CLOCK_MONOTONIC , & start );
+clock_gettime ( CLOCK_MONOTONIC , & start );
 
 heavy_work (vector , 0, VECTOR_SIZE );
 
-clock_gettime (CLOCK_MONOTONIC , &end);
+clock_gettime ( CLOCK_MONOTONIC , &end);
 
 double time_spent = ( end. tv_sec - start . tv_sec ) + (end. tv_nsec - start . tv_nsec ) / 1e9;
 
